@@ -1,0 +1,25 @@
+15:10:08:550  INFO 24556 --- [main] com.hmall.item.ItemApplication           : Starting ItemApplication using Java 20.0.2 on admin with PID 24556 (D:\Code\GitHub\spring-cloud\hmall\item-service\target\classes started by admin in D:\Code\GitHub\spring-cloud)
+15:10:08:553 DEBUG 24556 --- [main] com.hmall.item.ItemApplication           : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:10:08:554  INFO 24556 --- [main] com.hmall.item.ItemApplication           : The following 1 profile is active: "local"
+15:10:11:120  INFO 24556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+15:10:11:158  INFO 24556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:10:11:159  INFO 24556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:10:11:454  INFO 24556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+15:10:11:455  INFO 24556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2800 ms
+15:10:13:215  INFO 24556 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:10:13:338  INFO 24556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+15:10:13:339  INFO 24556 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:10:13:343  INFO 24556 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:10:13:389  INFO 24556 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:10:13:585  INFO 24556 --- [main] com.hmall.item.ItemApplication           : Started ItemApplication in 6.333 seconds (JVM running for 16.037)
+15:10:47:068  INFO 24556 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:10:47:068  INFO 24556 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:10:47:072  INFO 24556 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+15:11:02:723  INFO 24556 --- [http-nio-8081-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:11:03:170  INFO 24556 --- [http-nio-8081-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:11:03:186 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectPage_mpCount    : ==>  Preparing: SELECT COUNT(*) FROM item
+15:11:03:245 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectPage_mpCount    : ==> Parameters: 
+15:11:03:316 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.i.m.ItemMapper.selectPage_mpCount    : <==      Total: 1
+15:11:03:348 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectPage    : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item ORDER BY update_time DESC LIMIT ?
+15:11:03:352 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectPage    : ==> Parameters: 20(Long)
+15:11:03:372 DEBUG 24556 --- [http-nio-8081-exec-5] c.h.item.mapper.ItemMapper.selectPage    : <==      Total: 20
