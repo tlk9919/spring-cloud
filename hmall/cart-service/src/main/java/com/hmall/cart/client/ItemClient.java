@@ -12,4 +12,5 @@ import java.util.List;
 public interface ItemClient {
     @GetMapping("/items")
     List<ItemDTO> queryByItems(@RequestParam("ids") Collection<Long> ids);
+
 }
