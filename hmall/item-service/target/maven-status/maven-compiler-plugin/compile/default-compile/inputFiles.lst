@@ -1,0 +1,9 @@
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\domain\dto\OrderDetailDTO.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\mapper\ItemMapper.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\controller\ItemController.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\service\Impl\ItemServiceImpl.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\service\IItemService.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\domain\dto\ItemDTO.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\domain\po\Item.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\domain\qurey\ItemPageQuery.java
+D:\Code\GitHub\spring-cloud\hmall\item-service\src\main\java\com\hmall\item\ItemApplication.java
