@@ -1,0 +1,16 @@
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\domain\dto\OrderFormDTO.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\domain\po\Order.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\controller\OrderController.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\IOrderDetailService.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\domain\po\OrderLogistics.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\IOrderLogisticsService.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\mapper\OrderLogisticsMapper.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\mapper\OrderMapper.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\domain\po\OrderDetail.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\Impl\OrderDetailServiceImpl.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\Impl\OrderServiceImpl.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\mapper\OrderDetailMapper.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\TradeApplication.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\IOrderService.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\service\Impl\OrderLogisticsServiceImpl.java
+D:\Code\spring-cloud\spring-cloud\hmall\trade-service\src\main\java\com.hmall.trade\domain\vo\OrderVO.java
