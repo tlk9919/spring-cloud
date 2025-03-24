@@ -285,3 +285,5 @@
 127.0.0.1 - - [24/Mar/2025:16:58:41 +0800] "GET /cart.html HTTP/1.1" 200 9813 "http://localhost:18080/search.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 127.0.0.1 - - [24/Mar/2025:16:58:41 +0800] "GET /css/pages-cart.css HTTP/1.1" 200 3185 "http://localhost:18080/cart.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 127.0.0.1 - - [24/Mar/2025:16:58:42 +0800] "GET /api/carts HTTP/1.1" 200 366 "http://localhost:18080/cart.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+127.0.0.1 - - [24/Mar/2025:17:16:48 +0800] "GET /cart.html HTTP/1.1" 304 0 "http://localhost:18080/search.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+127.0.0.1 - - [24/Mar/2025:17:16:48 +0800] "GET /api/carts HTTP/1.1" 200 366 "http://localhost:18080/cart.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
