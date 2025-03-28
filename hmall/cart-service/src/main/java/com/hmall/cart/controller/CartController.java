@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/carts")
 @RequiredArgsConstructor
+@Slf4j
 public class CartController {
     private final ICartService cartService;
 
@@ -43,7 +45,8 @@ public class CartController {
 
     @ApiOperation("查询购物车列表")
     @GetMapping
-    public List<CartVO> queryMyCarts(){
+    public List<CartVO> queryMyCarts(@RequestHeader(value = "user-info", required = false) String userInfo){
+        log.info("userInfo:{}", userInfo);
         return cartService.queryMyCarts();
     }
     @ApiOperation("批量删除购物车中商品")
