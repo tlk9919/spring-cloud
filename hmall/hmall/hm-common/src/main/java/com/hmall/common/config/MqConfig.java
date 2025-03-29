@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnClass(MqConfig.class)
 public class MqConfig {
     @Bean
     public MessageConverter messageConverter() {
