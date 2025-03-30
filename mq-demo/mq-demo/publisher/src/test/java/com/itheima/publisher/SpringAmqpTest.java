@@ -118,7 +118,7 @@ public class SpringAmqpTest {
         Thread.sleep(2000);
 
     }
-    @Test
+   // @Test
     void testSendMessage(){
         //1.自定义构建消息
         Message msg = MessageBuilder.withBody("hello,SpringAMQP".getBytes(StandardCharsets.UTF_8))

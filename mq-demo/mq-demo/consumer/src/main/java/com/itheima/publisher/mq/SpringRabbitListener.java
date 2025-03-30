@@ -2,6 +2,7 @@ package com.itheima.publisher.mq;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
@@ -17,9 +18,10 @@ public class SpringRabbitListener {
 
 
     @RabbitListener(queues = "simple.queue")
-    public void ListenSimpleQueue(String message) {
-        log.info("SpringRabbitListener收到消息：【{}】", message);
-        throw new RuntimeException("我是故意的");
+    public void ListenSimpleQueue(Message message) {
+        log.info("simple.queue收到消息：id【{}】",message.getMessageProperties().getMessageId());
+        log.info("simple.queue收到消息：【{}】",new String(message.getBody()));
+//        throw new RuntimeException("我是故意的");
     }
     @RabbitListener(queues = "work.queue")
     public void ListenWorkQueue1(String message) throws InterruptedException {
