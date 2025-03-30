@@ -77,4 +77,12 @@ public class SpringRabbitListener {
     public void listenDlxQueue(String message) throws InterruptedException {
         log.info("监听到dlx.queue的消息：【{}】", message);
     }
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "delay.queue", durable = "true"),
+            exchange = @Exchange(name ="delay.direct", type = ExchangeTypes.DIRECT ,delayed = "true"),
+            key = {"hi"}
+    ))
+    public void listenDelayQueue(String message) throws InterruptedException {
+        log.info("监听到delay.queue的消息：【{}】", message);
+    }
 }

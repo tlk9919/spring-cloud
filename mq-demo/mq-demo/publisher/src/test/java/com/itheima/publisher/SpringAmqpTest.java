@@ -139,4 +139,11 @@ public class SpringAmqpTest {
             return message;
         });
     }
+    @Test
+    void testSendDelayMessageByPlugin(){
+        rabbitTemplate.convertAndSend("delay.direct", "hi", "hello", message -> {
+            message.getMessageProperties().setDelay(10000);
+            return message;
+        });
+    }
 }
