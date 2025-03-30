@@ -18,26 +18,26 @@ public class SpringRabbitListener {
 
 
     @RabbitListener(queues = "simple.queue")
-    public void ListenSimpleQueue(Message message) {
+    public void listenSimpleQueue(Message message) {
         log.info("simple.queue收到消息：id【{}】",message.getMessageProperties().getMessageId());
         log.info("simple.queue收到消息：【{}】",new String(message.getBody()));
 //        throw new RuntimeException("我是故意的");
     }
     @RabbitListener(queues = "work.queue")
-    public void ListenWorkQueue1(String message) throws InterruptedException {
+    public void listenWorkQueue1(String message) throws InterruptedException {
 
         System.out.println("消费者1接收到消息"+message+ ","+LocalDateTime.now());
     }
     @RabbitListener(queues = "work.queue")
-    public void ListenWorkQueue2(String message) throws InterruptedException {
+    public void listenWorkQueue2(String message) throws InterruptedException {
         System.out.println("消费者2接收到消息"+message+","+ LocalDateTime.now());
     }
     @RabbitListener(queues = "fanout.queue1")
-    public void ListenFanoutQueue1(String message) throws InterruptedException {
+    public void listenFanoutQueue1(String message) throws InterruptedException {
         log.info("fanout.queue1收到消息：【{}】", message);
     }
     @RabbitListener(queues = "fanout.queue2")
-    public void ListenFanoutQueue2(String message) throws InterruptedException {
+    public void listenFanoutQueue2(String message) throws InterruptedException {
         log.info("fanout.queue2收到消息：【{}】", message);
     }
     @RabbitListener(bindings = @QueueBinding(
@@ -45,7 +45,7 @@ public class SpringRabbitListener {
             exchange = @Exchange(name ="hmall.direct", type = ExchangeTypes.DIRECT),
             key = {"red","blue"}
     ))
-    public void ListenDirectQueue1(String message) throws InterruptedException {
+    public void listenDirectQueue1(String message) throws InterruptedException {
         log.info("direct.queue1收到消息：【{}】", message);
     }
     @RabbitListener(bindings = @QueueBinding(
@@ -53,19 +53,28 @@ public class SpringRabbitListener {
             exchange = @Exchange(name ="hmall.direct", type = ExchangeTypes.DIRECT),
             key = {"red","yellow"}
     ))
-    public void ListenDirectQueue2(String message) throws InterruptedException {
+    public void listenDirectQueue2(String message) throws InterruptedException {
         log.info("direct.queue2收到消息：【{}】", message);
     }
     @RabbitListener(queues = "topic.queue1")
-    public void ListenTopicQueue1(String message) throws InterruptedException {
+    public void listenTopicQueue1(String message) throws InterruptedException {
         log.info("topic.queue1收到消息：【{}】", message);
     }
     @RabbitListener(queues = "topic.queue2")
-    public void ListenTopicQueue2(String message) throws InterruptedException {
+    public void listenTopicQueue2(String message) throws InterruptedException {
         log.info("topic.queue2收到消息：【{}】", message);
     }
     @RabbitListener(queues = "object.queue")
-    public void ListenObjectQueue(  Map<String, Object> msg) throws InterruptedException {
+    public void listenObjectQueue(  Map<String, Object> msg) throws InterruptedException {
         log.info("topic.queue收到消息：【{}】", msg);
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "dlx.queue", durable = "true"),
+            exchange = @Exchange(name ="dlx.direct", type = ExchangeTypes.DIRECT),
+            key = {"hi"}
+    ))
+    public void listenDlxQueue(String message) throws InterruptedException {
+        log.info("监听到dlx.queue的消息：【{}】", message);
     }
 }
