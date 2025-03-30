@@ -23,7 +23,7 @@ import java.util.concurrent.Executor;
 public class DynamicRouteLoader {
     private final NacosConfigManager nacosConfigManager;
     private final RouteDefinitionWriter routeDefinitionWriter;
-    private final String dataId = "hmall-gateway-routes.json";
+    private final String dataId = "gateway-routes.json";
     private final String group = "DEFAULT_GROUP";
     private final Set<String> routeIds=new LinkedHashSet<>();
     @PostConstruct
