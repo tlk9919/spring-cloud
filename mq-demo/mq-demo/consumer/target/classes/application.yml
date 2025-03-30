@@ -11,3 +11,6 @@ spring:
     listener:
       simple:
         prefetch: 1 # 每次从队列中获取消息的数量，默认为1
+        acknowledge-mode: auto
+        retry:
+          enabled: true

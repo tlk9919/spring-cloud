@@ -19,6 +19,7 @@ public class SpringRabbitListener {
     @RabbitListener(queues = "simple.queue")
     public void ListenSimpleQueue(String message) {
         log.info("SpringRabbitListener收到消息：【{}】", message);
+        throw new RuntimeException("我是故意的");
     }
     @RabbitListener(queues = "work.queue")
     public void ListenWorkQueue1(String message) throws InterruptedException {
