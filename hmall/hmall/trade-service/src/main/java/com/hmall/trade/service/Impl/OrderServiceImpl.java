@@ -1,7 +1,9 @@
 package com.hmall.trade.service.Impl;
 
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.hmall.common.utils.BeanUtils;
 import com.hmall.trade.constants.MQConstants;
 import com.hmall.trade.domain.dto.OrderFormDTO;
 import com.hmall.trade.domain.po.Order;
@@ -117,6 +119,25 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     public void cancelOrder(Long orderId) {
         // 实现订单取消 TODO 订单关闭、恢复库存
+        //1、修改订单状态为已取消
+        Order order = new Order();
+        order.setId(orderId);
+        order.setStatus(5);
+        updateById(order);
+        //2、恢复库存
+        List<OrderDetail> details = detailService.listByMap(Map.of("order_id", orderId));
+
+        List<OrderDetailDTO> orderDetailDTOS = details.stream().map(orderDetail ->
+                {
+                    //改成负数修改库存为正数
+                    OrderDetailDTO orderDetailDTO = BeanUtils.copyProperties(orderDetail, OrderDetailDTO.class);
+                    orderDetailDTO.setNum(-Math.abs(orderDetailDTO.getNum()));
+                    return orderDetailDTO;
+                }
+        ).collect(Collectors.toList());
+
+        itemClient.deductStock(orderDetailDTOS);
+
     }
 
     private List<OrderDetail> buildDetails(Long orderId, List<ItemDTO> items, Map<Long, Integer> numMap) {

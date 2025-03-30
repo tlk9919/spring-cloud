@@ -42,6 +42,7 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements II
         }
     }
 
+
     @Override
     public List<ItemDTO> queryItemByIds(Collection<Long> ids) {
         return BeanUtils.copyList(listByIds(ids), ItemDTO.class);
