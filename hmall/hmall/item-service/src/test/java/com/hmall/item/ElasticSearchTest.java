@@ -46,6 +46,31 @@ public class ElasticSearchTest {
         //3.发送请求
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
 
+        parseResponseResult(response);
+
+    }
+
+    @Test
+    void testSearch() throws IOException {
+        //1.创建request对象
+        SearchRequest request = new SearchRequest("items");
+        //2.组织DSL参数
+        request.source().query(
+                QueryBuilders.boolQuery()
+                        .must(QueryBuilders.matchQuery("name", "脱脂牛奶"))
+                        .filter(QueryBuilders.termQuery("brand", "德亚"))
+                        .filter(QueryBuilders.rangeQuery("price").lt(300000))
+        )
+        ;
+        //3.发送请求
+        SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+        parseResponseResult(response);
+
+    }
+
+
+    private static void parseResponseResult(SearchResponse response) {
         //4.处理结果
         SearchHits searchHits = response.getHits();
         //4.1总条数
@@ -60,7 +85,6 @@ public class ElasticSearchTest {
             ItemDoc itemDoc = JSONUtil.toBean(json, ItemDoc.class);
             System.out.println("itemDoc = " + itemDoc);
         }
-
     }
 
 }
