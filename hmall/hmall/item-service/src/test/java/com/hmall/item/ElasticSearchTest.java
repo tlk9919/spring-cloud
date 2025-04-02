@@ -11,6 +11,8 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.util.Map;
 
 /*@SpringBootTest(properties ="spring.profiles.active=local" )*/
 public class ElasticSearchTest {
@@ -89,6 +92,21 @@ public class ElasticSearchTest {
         parseResponseResult(response);
 
     }
+    @Test
+    void testHighlight() throws IOException {
+        //1.创建request对象
+        SearchRequest request = new SearchRequest("items");
+        //2.组织DSL参数
+        //2.1query条件
+        request.source().query(QueryBuilders.matchQuery("name", "脱脂牛奶"));
+        //2.2尚亮条件
+        request.source().highlighter(SearchSourceBuilder.highlight().field("name"));
+        //3.发送请求
+        SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+
+        parseResponseResult(response);
+
+    }
 
     private static void parseResponseResult(SearchResponse response) {
         //4.处理结果
@@ -103,6 +121,15 @@ public class ElasticSearchTest {
             String json = hit.getSourceAsString();
             //4.2.2转成ItemDoc
             ItemDoc itemDoc = JSONUtil.toBean(json, ItemDoc.class);
+            //4.3处理高亮结果
+            Map<String, HighlightField> hfs = hit.getHighlightFields();
+            if (hfs!=null && hfs.size()>0) {
+                //4.3.1获取高亮结果
+                HighlightField hf = hfs.get("name");
+                String hfName = hf.getFragments()[0].toString();
+                //4.3.2覆盖非高亮结果
+                itemDoc.setName(hfName);
+            }
             System.out.println("itemDoc = " + itemDoc);
         }
     }
