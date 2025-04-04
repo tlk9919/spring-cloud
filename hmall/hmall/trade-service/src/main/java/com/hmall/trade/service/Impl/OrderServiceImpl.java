@@ -118,7 +118,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public void cancelOrder(Long orderId) {
-        // 实现订单取消 TODO 订单关闭、恢复库存
+        // 实现订单取消
         //1、修改订单状态为已取消
         Order order = new Order();
         order.setId(orderId);

@@ -10,7 +10,7 @@ import com.hmall.common.utils.BeanUtils;
 import com.hmall.item.domain.po.Item;
 import com.hmall.item.mapper.ItemMapper;
 import com.hmall.item.service.IItemService;
-// TODO 取消注释 import io.seata.spring.annotation.GlobalTransactional;
+ import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
