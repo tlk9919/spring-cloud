@@ -40,10 +40,10 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <!--nacos 服务注册发现-->
-      <!--  <dependency>
+        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!--OK http 的依赖 -->
         <dependency>
@@ -76,11 +76,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
         </dependency>
-        <!--eureka-->
+     <!--   &lt;!&ndash;eureka&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
